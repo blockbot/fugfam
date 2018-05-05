@@ -7,5 +7,3 @@ RUN yarn install --pure-lockfile
 RUN yarn cache clean
 
 CMD ["yarn", "start"]
-
-EXPOSE 3000
