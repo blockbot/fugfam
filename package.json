@@ -1,9 +1,14 @@
 {
-    "dependencies": {
-        "babel-core":"^6.26.3",
-        "react": "^16.3.2",
-        "react-dom": "^16.3.2",
-        "webpack": "^4.6.0",
-        "webpack-cli": "^2.0.15"
-    }
+  "name": "fugnet-server",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node server.js && cd client && yarn start"
+  },
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "koa": "^2.5.1",
+    "koa-router": "^7.4.0",
+    "webpack": "^4.6.0",
+    "webpack-cli": "^2.0.15"
+  }
 }

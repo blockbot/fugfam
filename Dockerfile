@@ -3,8 +3,9 @@ FROM node:8
 WORKDIR /var/www
 COPY . /var/www
 
-RUN yarn install --pure-lockfile \
-    && yarn build \
-    && yarn cache clean
+RUN yarn install --pure-lockfile
+RUN yarn cache clean
 
-EXPOSE 8888
+CMD ["yarn", "start"]
+
+EXPOSE 3000
