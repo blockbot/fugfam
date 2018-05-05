@@ -3,12 +3,10 @@ const Router = require('koa-router');
 const app = new Koa();
 const router = new Router();
 
-const port = 8000;
+const port = 6969;
 
 router.get('/', ctx => {
-    ctx.response = {
-        "body": "FUGNET v1.0.0"
-    };
+    ctx.body = "farts";
 });
 
 app
