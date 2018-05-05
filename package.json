@@ -1,9 +1,6 @@
 {
   "name": "fugnet-server",
   "version": "1.0.0",
-  "scripts": {
-    "start": "node server.js && cd client && yarn start"
-  },
   "dependencies": {
     "babel-core": "^6.26.3",
     "koa": "^2.5.1",

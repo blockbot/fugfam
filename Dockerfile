@@ -6,4 +6,4 @@ COPY . /var/www
 RUN yarn install --pure-lockfile
 RUN yarn cache clean
 
-CMD ["yarn", "start"]
+CMD bin/boot
