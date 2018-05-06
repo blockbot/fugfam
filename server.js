@@ -13,7 +13,7 @@ const port = 6969;
 
 router.get('/', ctx => {
     const body = renderToString(<App />);
-    const title = 'Server side Rendering with Styled Components';
+    const title = 'Server aaaside Rendering with Styled Components';
     
     ctx.body = Html({
         body,

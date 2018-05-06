@@ -4,10 +4,8 @@
   "license": "FUG IT",
   "scripts": {
     "start": "nodemon ./dist/server.js",
-    "build": "webpack"
-  },
-  "devDependencies":{
-    "nodemon": "1.17.4"
+    "build": "webpack",
+    "dev": "webpack --config=webpack.dev.config.js --progress"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.35",
@@ -18,7 +16,7 @@
     "koa": "^2.5.1",
     "koa-router": "^7.4.0",
     "koa-static": "^4.0.2",
-    "nodemon": "1.17.4",
+    "nodemon": "^1.17.4",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "style-loader": "^0.21.0",
