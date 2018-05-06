@@ -1,11 +1,12 @@
-const Koa = require('koa');
-const Router = require('koa-router');
+import Koa from 'koa';
+import Router from 'koa-router';
+import { renderToString } from 'react-dom/server';
+import serve from 'koa-static';
+import React from 'react';
+import Html from './client/src/Html';
+
 const app = new Koa();
 const router = new Router();
-const serve = require('koa-static');
-const React = require('react');
-const ReactDOMServer = require('react-dom/server');
-const Html = require(__dirname + '/client/src/Html');
 
 const port = 6969;
 

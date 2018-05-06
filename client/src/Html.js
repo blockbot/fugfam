@@ -16,4 +16,4 @@ const Html = ({ body, title }) => `
   </html>
 `;
 
-exports default Html;
+export default Html;
