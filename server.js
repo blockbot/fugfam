@@ -1,9 +1,10 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 import { renderToString } from 'react-dom/server';
-import serve from 'koa-static';
+import Serve from 'koa-static';
 import React from 'react';
 import Html from './client/src/Html';
+import App from './client/src/App';
 
 const app = new Koa();
 const router = new Router();
@@ -11,7 +12,7 @@ const router = new Router();
 const port = 6969;
 
 router.get('/', ctx => {
-    const body = "balls";
+    const body = renderToString(<App />);
     const title = 'Server side Rendering with Styled Components';
     
     ctx.body = Html({
