@@ -13,7 +13,7 @@ const port = 6969;
 
 router.get('/', ctx => {
     const body = renderToString(<App />);
-    const title = 'Server aaaside Rendering with Styled Components';
+    const title = 'FUG NET v1.0';
     
     ctx.body = Html({
         body,
