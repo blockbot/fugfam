@@ -1,7 +1,7 @@
 import Koa from 'koa';
 import Router from 'koa-router';
 import { renderToString } from 'react-dom/server';
-import Serve from 'koa-static';
+import serve from 'koa-static';
 import React from 'react';
 import Html from './client/src/Html';
 import App from './client/src/App';
@@ -23,7 +23,8 @@ router.get('/', ctx => {
 
 app
 	.use(router.routes())
-	.use(router.allowedMethods());
+	.use(router.allowedMethods())
+	.use(serve('./dist'));
 
 app.listen(port);
 

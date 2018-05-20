@@ -1,11 +1,9 @@
-import '../../assets/scss/app/app.scss';
-
 const Html = ({ body, title }) => `
   <!DOCTYPE html>
   <html>
     <head>
       <title>${title}</title>
-      <link href="./main.css" rel="stylesheet">
+      <link href="main.css" rel="stylesheet">
     </head>
     <body>
       <div id="app">${body}</div>
@@ -13,7 +11,7 @@ const Html = ({ body, title }) => `
   </html>
 
 
-  
+
 `;
 
 export default Html;
