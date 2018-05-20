@@ -1,4 +1,5 @@
 const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 
@@ -20,6 +21,9 @@ module.exports = {
       'process.env': {
         NODE_ENV: `'production'`
       }
+    }),
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
     })
   ],
   module: {
@@ -29,8 +33,8 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        test: /\.scss$/,
+        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
       },
       {
         test: /\.svg$/,

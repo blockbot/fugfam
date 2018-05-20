@@ -12,18 +12,18 @@ const router = new Router();
 const port = 6969;
 
 router.get('/', ctx => {
-    const body = renderToString(<App />);
-    const title = 'FUG NET v1.0';
-    
-    ctx.body = Html({
-        body,
-        title
-    });
+	const body = renderToString(<App />);
+	const title = 'FUG NET v1.0';
+	
+	ctx.body = Html({
+		body,
+		title
+	});
 });
 
 app
-    .use(router.routes())
-    .use(router.allowedMethods());
+	.use(router.routes())
+	.use(router.allowedMethods());
 
 app.listen(port);
 
