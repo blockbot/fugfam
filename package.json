@@ -3,9 +3,10 @@
   "version": "1.0.0",
   "license": "FUG IT",
   "scripts": {
-    "start": "nodemon ./dist/bundle.server.js",
     "build": "webpack",
-    "dev": "webpack --config=webpack.dev.config.js --progress"
+    "dev": "webpack --config=webpack.dev.config.js --progress",
+    "prod": "webpack --config=webpack.prod.config.js --progress",
+    "start": "nodemon ./dist/bundle.server.js",
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.35",
