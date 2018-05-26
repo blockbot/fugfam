@@ -7,7 +7,8 @@ module.exports = merge(webpackConfig, {
   mode: 'development',
   watch: true,
   watchOptions: {
-  	ignored: '/node_modules/'
+    ignored: '/node_modules/',
+    poll: 100,
   },
   plugins: [
     new webpack.DefinePlugin({
