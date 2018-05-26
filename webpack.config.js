@@ -1,23 +1,17 @@
-const webpack = require('webpack');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const nodeExternals = require('webpack-node-externals');
 const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
   entry: './server.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'server.js',
+    filename: 'bundle.server.js',
     publicPath: '/'
   },
   target: 'node',
   externals: nodeExternals(),
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: `'production'`
-      }
-    })
-  ],
   module: {
     rules: [
       {
@@ -25,13 +19,18 @@ module.exports = {
         loader: 'babel-loader'
       },
       {
-        test: /\.css$/,
-        use: [ 'style-loader', 'css-loader' ]
+        test: /\.scss$/,
+        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
       },
       {
         test: /\.svg$/,
         loader: 'svg-inline-loader'
       }
     ]
-  }
+  },
+  plugins: [
+    new MiniCssExtractPlugin({
+      filename: "[name].css",
+    })
+  ],
 };

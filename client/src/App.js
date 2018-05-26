@@ -1,9 +1,16 @@
 import React from 'react';
+import OSBar from './OSBar.js';
 import '../../assets/scss/app/app.scss';
+
+function AppMarkup() {
+	return(
+		<OSBar />
+	);
+}
 
 class App extends React.Component {
 	render() {
-		return <div>It's fucking ugly, but we're family. With a new look!</div>;
+		return <AppMarkup />;
 	}
 }
 

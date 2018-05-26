@@ -1,45 +1,19 @@
-const webpack = require('webpack');
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const nodeExternals = require('webpack-node-externals');
+const merge = require('webpack-merge');
 const path = require('path');
+const webpack = require('webpack');
+const webpackConfig = require('./webpack.config');
 
-module.exports = {
-  entry: './server.js',
-  output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'server.js',
-    publicPath: '/'
-  },
+module.exports = merge(webpackConfig, {
+  mode: 'development',
   watch: true,
   watchOptions: {
-	ignored: '/node_modules/'
+  	ignored: '/node_modules/'
   },
-  target: 'node',
-  externals: nodeExternals(),
   plugins: [
     new webpack.DefinePlugin({
       'process.env': {
-        NODE_ENV: `'production'`
+        NODE_ENV: `'development'`
       }
-    }),
-    new MiniCssExtractPlugin({
-      filename: "[name].css",
     })
   ],
-  module: {
-    rules: [
-      {
-        test: /\.js$/,
-        loader: 'babel-loader'
-      },
-      {
-        test: /\.scss$/,
-        use: [ MiniCssExtractPlugin.loader, 'css-loader', 'sass-loader' ]
-      },
-      {
-        test: /\.svg$/,
-        loader: 'svg-inline-loader'
-      }
-    ]
-  }
-};
+});
