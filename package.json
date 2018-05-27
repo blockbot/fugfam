@@ -6,7 +6,7 @@
     "build": "webpack",
     "dev": "webpack --config=webpack.dev.config.js --progress",
     "prod": "webpack --config=webpack.prod.config.js --progress",
-    "start": "nodemon ./dist/bundle.server.js",
+    "start": "nodemon ./dist/bundle.server.js"
   },
   "dependencies": {
     "@babel/core": "^7.0.0-beta.35",
