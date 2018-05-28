@@ -1,16 +1,16 @@
-import React from 'react';
 import AppsBar from './AppsBar.js';
-import '../../assets/scss/app/app.scss';
-
-function AppMarkup() {
-	return(
-		<AppsBar />
-	);
-}
+import FugChat from './FugChat.js';
+import React from 'react';
+import '../../assets/scss/app/global.scss';
 
 class App extends React.Component {
 	render() {
-		return <AppMarkup />;
+		return (
+			<div id="app">
+				<AppsBar />
+				<FugChat />
+			</div>
+		);
 	}
 }
 

@@ -6,7 +6,7 @@ const Html = ({ body, title }) => `
       <link href="main.css" rel="stylesheet">
     </head>
     <body>
-      <div id="app">${body}</div>
+      ${body}
     </body>
   </html>
 

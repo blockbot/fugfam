@@ -1,5 +1,6 @@
 import AppIcon from './AppIcon.js';
 import React from 'react';
+import '../../assets/scss/app/apps-bar.scss';
 
 class AppsBar extends React.Component {
 	render() {
