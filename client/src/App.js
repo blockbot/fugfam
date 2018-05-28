@@ -1,10 +1,10 @@
 import React from 'react';
-import OSBar from './OSBar.js';
+import AppsBar from './AppsBar.js';
 import '../../assets/scss/app/app.scss';
 
 function AppMarkup() {
 	return(
-		<OSBar />
+		<AppsBar />
 	);
 }
 
