@@ -1,16 +1,18 @@
+import AppsBar from './AppsBar.js';
+import AppCanvas from './AppCanvas';
+import FugChat from './FugChat.js';
 import React from 'react';
-import OSBar from './OSBar.js';
-import '../../assets/scss/app/app.scss';
-
-function AppMarkup() {
-	return(
-		<OSBar />
-	);
-}
+import '../../assets/scss/app/global.scss';
 
 class App extends React.Component {
 	render() {
-		return <AppMarkup />;
+		return (
+			<div id="app">
+				<AppsBar />
+				<AppCanvas />
+				<FugChat />
+			</div>
+		);
 	}
 }
 

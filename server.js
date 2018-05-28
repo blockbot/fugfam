@@ -24,7 +24,8 @@ router.get('/', ctx => {
 app
 	.use(router.routes())
 	.use(router.allowedMethods())
-	.use(serve('./dist'));
+	.use(serve('./dist'))
+	.use(serve('./assets/images'));
 
 app.listen(port);
 

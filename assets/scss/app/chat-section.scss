@@ -1,0 +1,52 @@
+%before-icon {
+  content: " ";
+  cursor: pointer;
+  display: block;
+  height: 30px;
+  position: absolute;
+  left: -30px;
+  width: 30px;
+}
+
+@mixin before-icon($filename) {
+  @extend %before-icon;
+  background: white url(../../images/icons/#{$filename}.svg) center center/15px no-repeat;
+}
+
+.chat-section {  
+  h2{
+    background: white;
+    color: black;
+    font: 12px helvetica, arial, sans-serif;
+    height: 20px;
+    margin: 0;
+    padding-top: 10px;
+    padding-left: 4px;
+  }
+
+  &.groups, &.contacts {
+    height: 25%;
+  }
+
+  &.groups {
+    &:before {
+      @include before-icon(users);
+    }
+  }
+
+  &.contacts {
+    &:before {
+      @include before-icon(user);
+
+    }
+  }
+
+  &.chat {
+    border-top: 1px solid white;
+    height: 50%;
+
+    &:before {
+      @include before-icon(bubbles);
+    }
+  }
+}
