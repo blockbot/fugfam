@@ -11,28 +11,64 @@ body {
   border-right: 1px solid white;
   height: calc(100% - 40px);
   margin: 20px 20px 0;
-  overflow: scroll-y;
   position: fixed;
   width: 100px; 
 
-  .app-icon {
-    border-radius: 2px;
-    box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
-    height: 80px;
-    margin: 0 0 10px 0;
-    width: 80px;
+  &:before {
+    background: white url(../../images/icons/search.svg) center center no-repeat;
+    background-size: 15px;
+    content: " ";
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    position: absolute;
+    right: -30px;
+    width: 30px;
+  }
 
-    &.images {
-      background: white url(../../images/icons/images.svg) center center no-repeat;
-    }
+  &:after {
+    background: white url(../../images/icons/circle-right.svg) center center no-repeat;
+    background-size: 10px;
+    bottom: 50%;
+    content: " ";
+    cursor: grab;
+    display: block;
+    height: 50px;
+    position: absolute;
+    right: -21px;
+    width: 20px;
+  }
 
-    &.videos {
-      background: white url(../../images/icons/play.svg) center center no-repeat;
+  &.expanded {
+    &:after {
+      background: white url(../../images/icons/circle-left.svg) center center no-repeat;
     }
+  }
 
-    &.news {
-      background: white url(../../images/icons/rss.svg) center center no-repeat;
-    }
+  #app-icons{
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+
+    .app-icon {
+      border-radius: 2px;
+      box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
+      height: 80px;
+      margin: 0 0 10px 0;
+      width: 80px;
+  
+      &.images {
+        background: white url(../../images/icons/images.svg) center center no-repeat;
+      }
+  
+      &.videos {
+        background: white url(../../images/icons/play.svg) center center no-repeat;
+      }
+  
+      &.news {
+        background: white url(../../images/icons/rss.svg) center center no-repeat;
+      }
+    } 
   }
 
   button {

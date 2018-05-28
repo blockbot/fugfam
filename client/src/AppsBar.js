@@ -5,9 +5,11 @@ class AppsBar extends React.Component {
 	render() {
 		return (
 			<div id="apps-bar">
-				<AppIcon classes={'images'} />
-				<AppIcon classes={'videos'} />
-				<AppIcon classes={'news'} />
+				<nav id="app-icons">
+					<AppIcon classes={'images'} />
+					<AppIcon classes={'videos'} />
+					<AppIcon classes={'news'} />
+				</nav>
 			</div>
 		);
 	}
