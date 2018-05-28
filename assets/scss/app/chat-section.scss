@@ -24,11 +24,11 @@
     padding-left: 4px;
   }
 
-  &.channels, &.contacts {
+  &.groups, &.contacts {
     height: 25%;
   }
 
-  &.channels {
+  &.groups {
     &:before {
       @include before-icon(users);
     }

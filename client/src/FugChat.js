@@ -7,7 +7,7 @@ class FugChat extends React.Component {
 	render() {
 		return (
 			<div id="fug-chat">
-        <ChatSection title="Channels" classes="channels" />
+        <ChatSection title="Groups" classes="groups" />
         <ChatSection title="Contacts" classes="contacts" />
         <ChatWindow classes="chat" />
 			</div>

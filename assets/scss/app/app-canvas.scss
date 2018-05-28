@@ -1,0 +1,42 @@
+#app-canvas {
+  height: calc(100% - 93px);
+  left: 170px;
+  margin-top: 20px;
+  position: fixed;
+  width: calc(100% - 520px);
+
+  nav {
+    margin-bottom: 20px;
+
+    button {
+      background: white;
+      border: none;
+      height: 30px;
+      padding: 0 20px;
+      position: relative;
+
+      &:before {
+        background: white;
+        content: "";
+        height: 20px;
+        position: absolute;
+        left: calc(50% - 1px);
+        top: 30px;
+        width: 1px;
+      }
+    }
+  }
+
+  section {
+    border: 1px solid white;
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: scroll;
+    
+    #temp-app{
+      position: relative;
+      text-align: center;
+      top: 50%;
+    }
+  }
+}
