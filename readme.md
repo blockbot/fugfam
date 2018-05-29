@@ -1,4 +1,3 @@
-# fugfam
-Fugfam.net
+# FUGNET
 
-FUCK YOU JAY
+Technology of the future.
