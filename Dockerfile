@@ -5,6 +5,6 @@ COPY . /var/www
 
 RUN yarn install --pure-lockfile
 RUN yarn cache clean
-RUN yarn build
+RUN yarn server
 
 CMD ["yarn", "start"]

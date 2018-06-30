@@ -1,19 +1,27 @@
 const merge = require('webpack-merge');
+const nodeExternals = require('webpack-node-externals');
 const path = require('path');
 const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 
 module.exports = merge(webpackConfig, {
-  entry: './client/src/Client.js',
+  entry: './server.js',
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.app.js',
+    filename: 'bundle.server.js',
     publicPath: '/'
   },
-  mode: 'development',
-  watch: true,
+  target: 'node',
+  externals: nodeExternals(),
   watchOptions: {
     ignored: '/node_modules/',
     poll: 100,
   },
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: `'development'`
+      }
+    })
+  ],
 });

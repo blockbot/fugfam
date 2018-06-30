@@ -1,10 +1,9 @@
 import React from 'react';
 
-
 class AppIcon extends React.Component {
-	render() {
+  render() {
 		return (
-      <div className={"app-icon " + this.props.classes}>
+      <div className={"app-icon " + this.props.classes} onClick={this.props.onClick}>
         <span></span>
       </div>
     );

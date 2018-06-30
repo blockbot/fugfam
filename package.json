@@ -4,6 +4,7 @@
   "license": "FUG IT",
   "scripts": {
     "build": "webpack",
+    "server": "webpack --config=webpack.server.config.js",
     "dev": "webpack --config=webpack.dev.config.js --progress",
     "prod": "webpack --config=webpack.prod.config.js --progress",
     "start": "nodemon ./dist/bundle.server.js"
@@ -21,8 +22,11 @@
     "mini-css-extract-plugin": "^0.4.0",
     "node-sass": "^4.9.0",
     "nodemon": "^1.17.4",
+    "prop-types": "^15.6.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-redux": "^4.4.9",
+    "redux": "^4.0.0",
     "sass-loader": "6.0.7",
     "style-loader": "^0.21.0",
     "styled-components": "^2.2.4",

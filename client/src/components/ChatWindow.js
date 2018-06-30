@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/scss/app/chat-section.scss';
+import '../../../assets/scss/app/chat-section.scss';
 
 class ChatWindow extends React.Component {
 	render() {

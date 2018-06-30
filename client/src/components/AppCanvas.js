@@ -1,5 +1,5 @@
 import React from 'react';
-import '../../assets/scss/app/app-canvas.scss';
+import '../../../assets/scss/app/app-canvas.scss';
 
 class AppCanvas extends React.Component {
 	render() {
