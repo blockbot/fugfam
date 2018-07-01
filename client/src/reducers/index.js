@@ -1,11 +1,6 @@
-import 'actions/osActions';
 import { combineReducers } from 'redux';
-
-function appLoader(state = HOME_APP, action) {
-
-}
+import appLoader from './appLoader.js';
 
 export default combineReducers({
-  todos,
-  visibilityFilter
+  appLoader
 });

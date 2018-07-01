@@ -6,15 +6,12 @@ class AppCanvas extends React.Component {
 		return (
 			<div id="app-canvas">
         <nav>
-          <button>Active App</button>
+          <button>{this.props.activeApp}</button>
         </nav>
 
         <section>
-          <div id="temp-app">
-            <div>
-              <img src="icons/magic-wand-white.svg" /><img src="icons/baffled-white.svg" />
-            </div>
-            Under construction.
+          <div id="home-app">
+            {this.props.activeApp}
           </div>
         </section>
 			</div>
