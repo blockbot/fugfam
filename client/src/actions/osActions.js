@@ -1,9 +1,6 @@
-import 'constants/actionTypes.js';
-import 'constants/apps.js';
+import { LOAD_APP } from '../constants/actionTypes.js';
 
-function loadApp(app) {
-  return{
-    type: LOAD_APP,
-    app: app
-  }
-}
+export const loadApp = app => ({
+  type: LOAD_APP,
+  app: app
+})

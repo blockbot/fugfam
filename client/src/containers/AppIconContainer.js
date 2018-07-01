@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 import AppIcon from '../components/AppIcon'
-import appLoader from '../reducers/appLoader'
+import { loadApp } from '../actions/osActions'
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onAppIconClick: () => {
-      dispatch(appLoader(ownProps.appName))
+      dispatch(loadApp(ownProps.appName))
     }
   }
 }
