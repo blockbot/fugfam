@@ -1,4 +1,4 @@
-import AppsBar from './components/AppsBar.js'
+import AppsBarContainer from './containers/AppsBarContainer'
 import AppCanvasContainer from './containers/AppCanvasContainer'
 import FugChat from './components/FugChat.js'
 import React from 'react'
@@ -8,7 +8,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div id="app-container">
-				<AppsBar />
+				<AppsBarContainer />
 				<AppCanvasContainer activeApp={this.props.activeApp} />
 				<FugChat />
 			</div>

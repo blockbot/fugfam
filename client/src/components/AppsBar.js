@@ -1,3 +1,4 @@
+import { Apps } from '../constants/apps';
 import AppIconContainer from '../containers/AppIconContainer.js';
 import React from 'react';
 import '../../../assets/scss/app/apps-bar.scss';
@@ -7,7 +8,9 @@ class AppsBar extends React.Component {
 		return (
 			<div id="apps-bar">
 				<nav id="app-icons">
-					// app icon container goes here
+					{this.props.appIconLabels.map((icon) => (
+						<AppIconContainer key={`${icon.toLowerCase()}-app-icon`} classes={`${icon.toLowerCase()}-app-icon`} appName={icon} />
+					))}
 				</nav>
 			</div>
 		);

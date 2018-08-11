@@ -1,6 +1,7 @@
-import { connect } from 'react-redux'
-import AppsBar from '../components/AppsBar'
-import { loadApp } from '../actions/osActions'
+import { Apps } from '../constants/apps';
+import AppsBar from '../components/AppsBar';
+import { connect } from 'react-redux';
+import { loadApp } from '../actions/osActions';
 
 // get app constants and return list of appicons
 // do the following the reduxy way
@@ -11,17 +12,25 @@ import { loadApp } from '../actions/osActions'
 //   <AppIconContainer classes={'${value}-app-icon'} appName='`${value}`' />
 // });
 
-const mapDispatchToProps = (dispatch, ownProps) => {
-  return {
-    onAppIconClick: () => {
-      dispatch(loadApp(ownProps.appName))
-    }
+const getAppIconLabels = () => {
+  let appIconLabels = [];
+
+  Object.entries(Apps).forEach(([key, value])=> {
+    appIconLabels.push(value);
+  })
+
+  return appIconLabels;
+}
+
+const mapStateToProps = () => {
+  return{
+    appIconLabels: getAppIconLabels()
   }
 }
 
-const AppIconContainer = connect(
-  null,
-  mapDispatchToProps
+const AppsBarContainer = connect(
+  mapStateToProps,
+  null
 )(AppsBar)
 
-export default AppIconContainer
+export default AppsBarContainer
