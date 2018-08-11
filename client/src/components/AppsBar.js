@@ -7,9 +7,7 @@ class AppsBar extends React.Component {
 		return (
 			<div id="apps-bar">
 				<nav id="app-icons">
-					<AppIconContainer onClick={() => console.log("click image")} classes={'images'} appName='Image' />
-					<AppIconContainer onClick={() => console.log("click video")} classes={'videos'} appName='Video' />
-					<AppIconContainer onClick={() => console.log("click news")} classes={'news'} appName='News' />
+					// app icon container goes here
 				</nav>
 			</div>
 		);

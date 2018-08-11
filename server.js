@@ -7,7 +7,7 @@ import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import Html from './client/src/Html';
 import App from './client/src/App';
-import rootReducer from './client/src/reducers'
+import rootReducer from './client/src/reducers';
 
 const app = new Koa();
 const router = new Router();
@@ -16,7 +16,7 @@ const port = 6969;
 
 router.get('/', ctx => {
 	const store = createStore(rootReducer);
-	const preloadedState = store.getState()
+	const preloadedState = store.getState();
 
 	const body = renderToString(
 		<Provider store={store}>

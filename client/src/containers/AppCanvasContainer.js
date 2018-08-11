@@ -1,10 +1,9 @@
 import { connect } from 'react-redux'
 import AppCanvas from '../components/AppCanvas'
 
-const mapStateToProps = (state, ownProps) => {
-  console.log(state);
+const mapStateToProps = state => {
   return {
-    activeApp: state.activeApp
+    activeApp: state.appLoader.activeApp
   }
 }
 
