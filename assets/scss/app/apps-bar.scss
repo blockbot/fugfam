@@ -44,19 +44,24 @@
     .app-icon {
       border-radius: 2px;
       box-shadow: 0px 3px 4px 0px rgba(0,0,0,0.75);
+      cursor: pointer;
       height: 80px;
       margin: 0 0 10px 0;
       width: 80px;
   
-      &.images {
+      &.home-app-icon {
+        background: white url(../../images/icons/home3.svg) center center no-repeat;
+      }
+
+      &.image-app-icon {
         background: white url(../../images/icons/images.svg) center center no-repeat;
       }
   
-      &.videos {
+      &.video-app-icon {
         background: white url(../../images/icons/play.svg) center center no-repeat;
       }
   
-      &.news {
+      &.news-app-icon {
         background: white url(../../images/icons/rss.svg) center center no-repeat;
       }
     } 

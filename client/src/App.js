@@ -1,19 +1,19 @@
-import AppsBar from './AppsBar.js';
-import AppCanvas from './AppCanvas';
-import FugChat from './FugChat.js';
-import React from 'react';
-import '../../assets/scss/app/global.scss';
+import AppsBarContainer from './containers/AppsBarContainer'
+import AppCanvasContainer from './containers/AppCanvasContainer'
+import FugChat from './components/FugChat.js'
+import React from 'react'
+import '../../assets/scss/app/global.scss'
 
 class App extends React.Component {
 	render() {
 		return (
-			<div id="app">
-				<AppsBar />
-				<AppCanvas />
+			<div id="app-container">
+				<AppsBarContainer />
+				<AppCanvasContainer activeApp={this.props.activeApp} />
 				<FugChat />
 			</div>
 		);
 	}
 }
 
-export default App;
+export default App

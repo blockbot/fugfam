@@ -1,7 +1,7 @@
 import ChatSection from './ChatSection';
 import ChatWindow from './ChatWindow';
 import React from 'react';
-import '../../assets/scss/app/chat.scss';
+import '../../../assets/scss/app/chat.scss';
 
 class FugChat extends React.Component {
 	render() {
