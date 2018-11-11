@@ -12,10 +12,10 @@ delete window.__PRELOADED_STATE__;
 const store = createStore(rootReducer, preloadedState);
 const app = document.getElementById( "app" );
 
-ReactDOM.hydrate( 
+ReactDOM.hydrate(
   <Provider store={store}>
     <App activeApp='${preloadedState.activeApp}' />
   </Provider>
-  , 
-  app 
+  ,
+  app
 );
