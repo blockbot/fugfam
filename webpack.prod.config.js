@@ -4,6 +4,12 @@ const webpack = require('webpack');
 const webpackConfig = require('./webpack.config');
 
 module.exports = merge(webpackConfig, {
+  entry: './client/src/Client.js',
+  output: {
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.app.js',
+    publicPath: '/'
+  },
   mode: 'production',
   plugins: [
     new webpack.DefinePlugin({
