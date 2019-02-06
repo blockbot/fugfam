@@ -1,3 +1,5 @@
+
+import "@babel/polyfill";
 import Koa from 'koa';
 import Router from 'koa-router';
 import { renderToString } from 'react-dom/server';
@@ -8,6 +10,7 @@ import { Provider } from 'react-redux';
 import Html from './client/src/Html';
 import App from './client/src/App';
 import rootReducer from './client/src/reducers';
+import AWS from 'aws-sdk';
 
 const app = new Koa();
 const router = new Router();
@@ -30,6 +33,34 @@ router.get('/', ctx => {
 		title,
 		preloadedState
 	});
+});
+
+router.get('/images', async (ctx) => {
+	const region = "sfo2";
+    const spacesEndpoint = `${region}.digitaloceanspaces.com`;
+
+	// make these env vars
+    const awsCreds = {
+        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+        endpoint: spacesEndpoint,
+        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
+    };
+    const s3 = new AWS.S3(awsCreds);
+    const params = {
+		// make this bucket name dynamic
+        Bucket: 'fug-images-paintings',
+	};
+	const images = [];
+
+	await s3.listObjectsV2(params).promise().then((data) => {
+		data.Contents.forEach((content) => {
+			images.push(content);
+		});
+	}).catch((err) => {
+		console.log("err: ", err);
+	});
+
+	ctx.body = images;
 });
 
 app
