@@ -3,7 +3,7 @@ import AppCanvas from '../components/AppCanvas'
 
 const mapStateToProps = state => {
   return {
-    activeApp: state.appLoader.activeApp
+    activeApp: state.appLoader.activeApp,
   }
 }
 

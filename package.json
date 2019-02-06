@@ -10,9 +10,12 @@
     "start": "nodemon ./dist/bundle.server.js"
   },
   "dependencies": {
-    "@babel/core": "^7.0.0-beta.35",
-    "@babel/preset-env": "^7.0.0-beta.35",
-    "@babel/preset-react": "^7.0.0-beta.35",
+    "@babel/core": "^7.2.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/polyfill": "7.0.0",
+    "@babel/preset-env": "^7.3.1",
+    "@babel/preset-react": "^7.0.0",
+    "aws-sdk": "2.353.0",
     "babel-loader": "8.0.0-beta.0",
     "css-loader": "0.28.11",
     "file-loader": "^1.1.11",
@@ -25,6 +28,7 @@
     "prop-types": "^15.6.2",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
+    "react-loadable": "5.5.0",
     "react-redux": "^4.4.9",
     "redux": "^4.0.0",
     "sass-loader": "6.0.7",
