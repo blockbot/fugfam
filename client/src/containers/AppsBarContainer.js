@@ -1,7 +1,6 @@
 import { Apps } from '../constants/apps';
 import AppsBar from '../components/AppsBar';
 import { connect } from 'react-redux';
-import { loadApp } from '../actions/osActions';
 
 // get app constants and return list of appicons
 // do the following the reduxy way

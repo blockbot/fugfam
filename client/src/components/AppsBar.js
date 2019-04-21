@@ -1,4 +1,3 @@
-import { Apps } from '../constants/apps';
 import AppIconContainer from '../containers/AppIconContainer.js';
 import React from 'react';
 import '../../../assets/scss/app/apps-bar.scss';

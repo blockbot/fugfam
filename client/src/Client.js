@@ -14,7 +14,7 @@ const app = document.getElementById( "app" );
 
 ReactDOM.hydrate(
   <Provider store={store}>
-    <App activeApp='${preloadedState.activeApp}' />
+    <App activeApp='${preloadedState.apps.activeApp}' />
   </Provider>
   ,
   app
