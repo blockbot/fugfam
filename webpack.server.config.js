@@ -17,11 +17,4 @@ module.exports = merge(webpackConfig, {
     ignored: '/node_modules/',
     poll: 100,
   },
-  plugins: [
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: `'development'`
-      }
-    })
-  ],
 });

@@ -23,7 +23,7 @@ router.get('/', ctx => {
 
 	const body = renderToString(
 		<Provider store={store}>
-			<App activeApp='${preloadedState.activeApp}' />
+			<App activeApp='${preloadedState.apps.activeApp}' />
 		</Provider>
 	);
 	const title = 'FUG NET v1.0';
@@ -37,24 +37,23 @@ router.get('/', ctx => {
 
 router.get('/images', async (ctx) => {
 	const region = "sfo2";
-    const spacesEndpoint = `${region}.digitaloceanspaces.com`;
-
-	// make these env vars
-    const awsCreds = {
-        accessKeyId: process.env.AWS_ACCESS_KEY_ID,
-        endpoint: spacesEndpoint,
-        secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
-    };
-    const s3 = new AWS.S3(awsCreds);
-    const params = {
-		// make this bucket name dynamic
-        Bucket: 'fug-images-paintings',
+  const spacesEndpoint = `${region}.digitaloceanspaces.com`;
+	const awsCreds = {
+			accessKeyId: process.env.AWS_ACCESS_KEY_ID,
+			endpoint: spacesEndpoint,
+			secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY,
 	};
-	const images = [];
+
+	const s3 = new AWS.S3(awsCreds);
+	const params = {
+	// make this bucket name dynamic
+			Bucket: 'fug-images-paintings',
+	};
+	const images = {data: []};
 
 	await s3.listObjectsV2(params).promise().then((data) => {
 		data.Contents.forEach((content) => {
-			images.push(content);
+			images.data.push(content);
 		});
 	}).catch((err) => {
 		console.log("err: ", err);
