@@ -15,14 +15,23 @@ import images from './images';
 //     activeCollection: "Paintings",
 //     collections: {
 //       paintings: [
-//         "url.jpg",
+//         {
+//            filename: "url.jpg",
+//            lastModified: "2019-01-13T23:35:50.080Z",
+//            id: 696969
+//         },
 //         "etc..."
 //       ],
 //       digital: [
-//         "url.jpg",
+//         {
+//            filename: "url.jpg",
+//            lastModified: "2019-01-13T23:35:50.080Z",
+//            id: 696969
+//         },
 //         "etc..."
 //       ]
-//     }
+//     },
+//     isFetching: false,
 //   }
 // }
 

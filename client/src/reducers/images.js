@@ -1,30 +1,43 @@
 import "@babel/polyfill";
 
 const initialState = {
+  isFetching: false,
+  // didInvalidate: false,
+  // lastUpdated: 6969696969,
+  // fetchedPageCount: 69,
+  // nextPageUrl: ?p=69,
   activeCollection: null,
   collections: {},
 }
 
-function getImages(action) {
-  console.log("getting images, k: ", action)
-// this function needs to check for cached results in store
-
-
-  return [];
-}
-
-function images(state = initialState, action) {
+function imageCollection(state, action) {
   switch(action.type) {
-    case 'GET_IMAGE_COLLECTION':
+    case 'REQUEST_IMAGE_COLLECTION':
       return Object.assign({}, state, {
         activeCollection: action.collection,
+        isFetching: true,
+      })
+    case 'RECEIVE_IMAGE_COLLECTION':
+      return Object.assign({}, state, {
+        isFetching: false,
         collections: Object.assign({}, state.collections, {
-          [action.collection]: getImages(action)
+          [action.collection]: action.images
         })
-      });
+      })
+
     default:
       return state;
   }
 }
 
-export default images;
+function images(state = initialState, action) {
+  switch(action.type) {
+    case 'REQUEST_IMAGE_COLLECTION':
+    case 'RECEIVE_IMAGE_COLLECTION':
+      return imageCollection(state, action)
+    default:
+      return state
+  }
+}
+
+export default images

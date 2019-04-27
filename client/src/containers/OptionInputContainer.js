@@ -1,11 +1,11 @@
 import { connect } from 'react-redux'
 import OptionInput from '../components/OptionInput'
-import { getImageCollection } from '../actions/osActions'
+import { fetchImageCollection } from '../actions/osActions'
 
 const mapDispatchToProps = (dispatch, ownProps) => {
   return {
     onSelectOption: () => {
-      dispatch(getImageCollection(ownProps.value));
+      dispatch(fetchImageCollection(ownProps.value));
     }
   }
 }

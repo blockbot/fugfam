@@ -49,11 +49,11 @@ router.get('/images', async (ctx) => {
 	// make this bucket name dynamic
 			Bucket: 'fug-images-paintings',
 	};
-	const images = [];
+	const images = {data: []};
 
 	await s3.listObjectsV2(params).promise().then((data) => {
 		data.Contents.forEach((content) => {
-			images.push(content);
+			images.data.push(content);
 		});
 	}).catch((err) => {
 		console.log("err: ", err);
