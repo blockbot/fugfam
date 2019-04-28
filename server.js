@@ -37,7 +37,8 @@ router.get('/', ctx => {
 
 router.get('/images', async (ctx) => {
 	const region = "sfo2";
-  const spacesEndpoint = `${region}.digitaloceanspaces.com`;
+	const spacesEndpoint = `${region}.digitaloceanspaces.com`;
+	console.log(process.env)
 	const awsCreds = {
 			accessKeyId: process.env.AWS_ACCESS_KEY_ID,
 			endpoint: spacesEndpoint,
