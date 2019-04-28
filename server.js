@@ -38,7 +38,6 @@ router.get('/', ctx => {
 router.get('/images', async (ctx) => {
 	const region = "sfo2";
 	const spacesEndpoint = `${region}.digitaloceanspaces.com`;
-	console.log(process.env)
 	const awsCreds = {
 			accessKeyId: process.env.AWS_ACCESS_KEY_ID,
 			endpoint: spacesEndpoint,
@@ -47,8 +46,7 @@ router.get('/images', async (ctx) => {
 
 	const s3 = new AWS.S3(awsCreds);
 	const params = {
-	// make this bucket name dynamic
-			Bucket: 'fug-images-paintings',
+			Bucket: getQueryParam(ctx.querystring, 'bucket'),
 	};
 	const images = {data: []};
 
@@ -62,6 +60,11 @@ router.get('/images', async (ctx) => {
 
 	ctx.body = images;
 });
+
+function getQueryParam(string, param) {
+	var regex = new RegExp(param + '=([^&#]*)');
+	return regex.exec(string)[1];
+}
 
 app
 	.use(router.routes())

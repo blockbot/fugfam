@@ -20,7 +20,7 @@ export const receiveImageCollection = (collection, json) => ({
 export function fetchImageCollection(collection) {
   return dispatch => {
     dispatch(requestImageCollection(collection))
-    return fetch(`${window.location.origin}/images`)
+    return fetch(`${window.location.origin}/images?bucket=${collection}`)
       .then(response => response.json())
       .then(json => dispatch(receiveImageCollection(collection, json)))
   }

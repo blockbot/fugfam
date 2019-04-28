@@ -1,23 +1,13 @@
 import { fetchImageCollection } from '../actions/osActions'
 import { ImageAppCategories } from '../constants/apps'
 import Image from './Image.js'
+import Link from './Link.js'
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import SelectInput from './SelectInput'
 
-
-// fetch image data from endpoint
-	// get images from default bucket
-
-// populate default bucket images
-
-// create functionality to change selector
-	// onchange fetch images for that bucket
-	// do render process
-
 // on click image, expands for larger view
 	// pinch zoom mobile
-
 
 class ImageApp extends React.Component {
 	componentDidMount(){
@@ -30,7 +20,7 @@ class ImageApp extends React.Component {
 	buildImageSrc(filename){
 		console.log("image src");
 
-		const basePath = 'https://fug-images-paintings.sfo2.digitaloceanspaces.com/';
+		const basePath = `https://${this.props.activeCollection}.sfo2.digitaloceanspaces.com/`;
 
 		return basePath + filename;
 	}
@@ -42,7 +32,11 @@ class ImageApp extends React.Component {
 
 		return !imageData ? "Loading" : imageData.map(image => {
 			const imageSrc = this.buildImageSrc(image.Key)
-			return <a href={imageSrc} target="_blank"><Image key={image.Key} src={imageSrc} /></a>
+			return (
+				<Link key={imageSrc} href={imageSrc} target='_blank'>
+					<Image key={image.Key} src={imageSrc} />
+				</Link>
+			)
 		});
 	}
 
@@ -62,8 +56,7 @@ class ImageApp extends React.Component {
 
 function mapStateToProps(state) {
   const { images } = state
-  const { isFetching, collections } = images
-	const activeCollection = 'fug-images-paintings'
+  const { isFetching, collections, activeCollection } = images
 
   return {
 		isFetching,

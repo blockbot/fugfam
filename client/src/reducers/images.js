@@ -6,7 +6,7 @@ const initialState = {
   // lastUpdated: 6969696969,
   // fetchedPageCount: 69,
   // nextPageUrl: ?p=69,
-  activeCollection: null,
+  activeCollection: 'fug-images-paintings',
   collections: {},
 }
 
