@@ -3,7 +3,7 @@ import React from 'react';
 class OptionInput extends React.Component {
 	render() {
 		return (
-      <option value={this.props.value} onClick={this.props.onSelectOption}>{this.props.children}</option>
+      	<option value={this.props.value}>{this.props.children}</option>
 		);
 	}
 }

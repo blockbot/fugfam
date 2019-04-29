@@ -4,30 +4,37 @@ import Image from './Image.js'
 import Link from './Link.js'
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
-import SelectInput from './SelectInput'
+import SelectInputContainer from '../containers/SelectInputContainer'
 
 // on click image, expands for larger view
 	// pinch zoom mobile
 
 class ImageApp extends React.Component {
+	constructor(props) {
+    super(props);
+
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  handleChange(activeCollection) {
+		const { dispatch } = this.props
+
+		dispatch(fetchImageCollection(activeCollection))
+  }
+
 	componentDidMount(){
-		console.log("mounted");
 		const { dispatch, activeCollection } = this.props
 
 		dispatch(fetchImageCollection(activeCollection))
 	}
 
 	buildImageSrc(filename){
-		console.log("image src");
-
 		const basePath = `https://${this.props.activeCollection}.sfo2.digitaloceanspaces.com/`;
 
 		return basePath + filename;
 	}
 
 	createImages() {
-		console.log("create src");
-
 		const imageData = this.props.collections[this.props.activeCollection];
 
 		return !imageData ? "Loading" : imageData.map(image => {
@@ -41,10 +48,9 @@ class ImageApp extends React.Component {
 	}
 
 	render() {
-		console.log("activeCollection: ", this.props.activeCollection);
 		return (
 			<Fragment>
-				<SelectInput selectOptions={ImageAppCategories}></SelectInput>
+				<SelectInputContainer selectOptions={ImageAppCategories} onChange={this.handleChange}></SelectInputContainer>
 
 				<div id="image-app">
 					{this.createImages()}

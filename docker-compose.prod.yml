@@ -3,7 +3,7 @@ version: '3'
 services:
   fugfam:
     environment:
-      - PRODUCTION: 'true'
+      - PRODUCTION='true'
       - AWS_SECRET_ACCESS_KEY
       - AWS_ACCESS_KEY_ID
     expose:
