@@ -4,7 +4,7 @@ class NewsApp extends React.Component {
 	render() {
 		return (
 			<div id="news-app">
-        It's the news! MAGA!
+				<h1>FNN: Breaking News <sup>Powered by Fug Lite</sup></h1>
 			</div>
 		);
 	}

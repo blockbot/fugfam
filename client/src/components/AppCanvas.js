@@ -43,7 +43,7 @@ class AppCanvas extends React.Component {
           <button>{this.state.activeApp}</button>
         </nav>
 
-        <section>
+        <section id="app-container">
           <ActiveComponent />
         </section>
       </div>

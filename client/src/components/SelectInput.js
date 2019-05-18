@@ -1,34 +1,51 @@
-import OptionInput from './OptionInput';
+// import OptionInput from './OptionInput';
 import React from 'react';
+import Select from 'react-select';
+
+const customStyles = {
+  option: (provided, state) => ({
+    ...provided,
+    color: 'black',
+  })
+}
 
 class SelectInput extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {value: this.props.selectOptions[Object.keys(this.props.selectOptions)[0]]};
+    this.state = {
+      selectedOption: {
+        label: Object.keys(this.props.selectOptions)[0],
+        value: this.props.selectOptions[Object.keys(this.props.selectOptions)[0]]}
+    };
 
     this.handleChange = this.handleChange.bind(this);
   }
 
-  handleChange(event) {
-    this.setState({value: event.target.value});
-    this.props.onChange(event.target.value);
+  handleChange(selectedOption) {
+    console.log(selectedOption);
+    this.setState({selectedOption});
+    this.props.onChange(selectedOption.value);
   }
 
   createOptionInputs() {
     let optionInputs = [];
 
-    {Object.entries(this.props.selectOptions).forEach(([key, value])=> {
-      optionInputs.push(<OptionInput key={key} value={value}>{key}</OptionInput>);
+    {Object.entries(this.props.selectOptions).forEach(([label, value])=> {
+      optionInputs.push({ value, label });
     })}
 
     return optionInputs;
   }
-
   render() {
-		return (
-      <select id={this.props.id} onChange={this.handleChange}>
-        {this.createOptionInputs()}
-      </select>
+		const { selectedOption } = this.state;
+    console.log(selectedOption);
+    return (
+      <Select
+        defaultValue={selectedOption}
+        onChange={this.handleChange}
+        options={this.createOptionInputs()}
+        styles={customStyles}
+      />
     );
 	}
 }
