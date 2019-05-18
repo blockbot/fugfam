@@ -5,6 +5,7 @@ import Link from './Link.js'
 import React, { Fragment } from 'react'
 import { connect } from 'react-redux'
 import SelectInputContainer from '../containers/SelectInputContainer'
+import '../../../assets/scss/imageApp/image-app.scss'
 
 // on click image, expands for larger view
 	// pinch zoom mobile
@@ -29,7 +30,7 @@ class ImageApp extends React.Component {
 	}
 
 	buildImageSrc(filename){
-		const basePath = `https://${this.props.activeCollection}.sfo2.digitaloceanspaces.com/`;
+		const basePath = `https://${this.props.activeCollection}.sfo2.cdn.digitaloceanspaces.com/`;
 
 		return basePath + filename;
 	}
@@ -41,7 +42,9 @@ class ImageApp extends React.Component {
 			const imageSrc = this.buildImageSrc(image.Key)
 			return (
 				<Link key={imageSrc} href={imageSrc} target='_blank'>
-					<Image key={image.Key} src={imageSrc} />
+					<span className="image-container">
+						<Image key={image.Key} src={imageSrc} />
+					</span>
 				</Link>
 			)
 		});
@@ -50,7 +53,9 @@ class ImageApp extends React.Component {
 	render() {
 		return (
 			<Fragment>
-				<SelectInputContainer selectOptions={ImageAppCategories} onChange={this.handleChange}></SelectInputContainer>
+				<div className='app-bar'>
+					<SelectInputContainer selectOptions={ImageAppCategories} onChange={this.handleChange}></SelectInputContainer>
+				</div>
 
 				<div id="image-app">
 					{this.createImages()}

@@ -4,7 +4,7 @@ class VideoApp extends React.Component {
 	render() {
 		return (
 			<div id="video-app">
-        Fuckin' FUGTUBE
+        <h1>FugTube: We are the content beast.</h1>
 			</div>
 		);
 	}
