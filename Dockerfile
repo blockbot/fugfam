@@ -1,11 +1,21 @@
-FROM node:8
+ARG PORT=80
+
+FROM node:lts-alpine
+
+RUN apk --update add\
+    bash\
+    git
 
 WORKDIR /var/www
-COPY . /var/www
 
-RUN yarn install --pure-lockfile
-RUN yarn cache clean
-RUN yarn prod
-RUN yarn server
+COPY package*.json ./
 
-CMD ["yarn", "start"]
+RUN npm install
+
+COPY . .
+
+RUN npm run build
+
+EXPOSE 80
+
+CMD bin/boot

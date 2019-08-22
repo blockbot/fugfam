@@ -4,3 +4,7 @@ services:
   fugfam:
     build: .
     container_name: fugfam
+    ports:
+      - 80:80
+    volumes:
+      - .:/var/www

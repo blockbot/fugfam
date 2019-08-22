@@ -1,3 +1,3 @@
 # FUGNET
 
-Technology of the future.
+Thanks, I hate it.
