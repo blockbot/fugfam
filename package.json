@@ -1,47 +1,31 @@
 {
-  "name": "fugnet-server",
-  "version": "1.0.0",
-  "license": "FUG IT",
+  "name": "fugfam",
+  "version": "1.0.69",
+  "description": "Thanks, I hate it.",
+  "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "server": "webpack --config=webpack.server.config.js",
-    "dev": "webpack --config=webpack.dev.config.js --progress",
-    "prod": "webpack --config=webpack.prod.config.js --progress",
-    "start": "nodemon ./dist/bundle.server.js"
+    "dev": "node server.js",
+    "build": "next build",
+    "prod": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/blockbot/fugfam.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/blockbot/fugfam/issues"
+  },
+  "homepage": "https://github.com/blockbot/fugfam#readme",
   "dependencies": {
-    "@babel/core": "^7.2.2",
-    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
-    "@babel/polyfill": "7.0.0",
-    "@babel/preset-env": "^7.3.1",
-    "@babel/preset-react": "^7.0.0",
-    "aws-sdk": "2.353.0",
-    "babel-loader": "8.0.0-beta.0",
-    "cross-fetch": "^3.0.2",
-    "css-loader": "0.28.11",
-    "file-loader": "^1.1.11",
-    "koa": "^2.5.1",
-    "koa-router": "^7.4.0",
-    "koa-static": "^4.0.2",
-    "mini-css-extract-plugin": "^0.4.0",
-    "node-sass": "^4.9.0",
-    "nodemon": "^1.17.4",
-    "prop-types": "^15.6.2",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-loadable": "5.5.0",
-    "react-redux": "^4.4.9",
-    "react-select": "^2.4.3",
-    "redux": "^4.0.0",
-    "redux-logger": "^3.0.6",
-    "redux-thunk": "2.3.0",
-    "sass-loader": "6.0.7",
-    "style-loader": "^0.21.0",
-    "styled-components": "^2.2.4",
-    "svg-inline-loader": "0.8.0",
-    "webpack": "^4.6.0",
-    "webpack-cli": "^2.0.15",
-    "webpack-merge": "^4.1.2",
-    "webpack-node-externals": "^1.7.0"
+    "@emotion/core": "^10.0.17",
+    "@emotion/styled": "^10.0.17",
+    "emotion": "^10.0.17",
+    "express": "^4.17.1",
+    "next": "^9.0.4",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0"
   }
 }
