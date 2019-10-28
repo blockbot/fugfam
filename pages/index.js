@@ -1,6 +1,8 @@
 import styled from '@emotion/styled'
+import BlogFeed from '../components/BlogFeed'
 import { css } from 'emotion'
 import FugLetterForm from '../components/FugLetterForm'
+import { getFlogPosts, getClogPosts } from '../api/posts'
 import GlobalStyles from '../components/GlobalStyles'
 import Header from '../components/Header'
 import Link from 'next/link'
@@ -23,7 +25,7 @@ const BlockLink = styled.a`{
   display: block;
 }`
 
-const Home = () => (
+const Home = (props) => (
   <>
     <GlobalStyles />
     <div className={css`
@@ -129,31 +131,71 @@ const Home = () => (
           <BlockLink href="https://www.dropbox.com/sh/q71oazdts0r1ge4/AADn-qz6gvGwUvC4ObeDsrEqa?dl=0" target="_blank">Issue 2: "The Internet, What a Concept"</BlockLink>
         </TextDiv>
       </div>
-      <div id="theflog">
-        <Img srcSet="static/fugnet-theflog-320w.png,
-                     static/fugnet-theflog-640w.png 2x,
-                     static/fugnet-theflog-1242w.png 3x"
-             src="static/fugnet-theflog-320w.png"
-             alt="The Flog - It's trash, obviously" />
+      <div id="fanmail">
+        <Img srcSet="static/fugnet-fanmail-1242w.png,
+                     static/fugnet-fanmail-1242w.png 2x,
+                     static/fugnet-fanmail-1242w.png 3x"
+            src="static/fugnet-fanmail-1242w.png"
+            alt="Fan Mail" />
         <TextDiv>
-          <p>The Fug Fam Blog aka The Flog aka Shit Post City - Coming Soon! We know, you are dying for more blog content.</p>
+          <Link href="/fanmail">
+            <a>Read it here.</a>
+          </Link>
+
+          <p>
+            Send it here:<br/><br/>
+
+            Fug Fam, LLC<br/>
+            c/o Joey Dehnert<br/>
+            P.O. Box 23441<br/>
+            San Diego, CA<br/>
+            92193
+          </p>
+        </TextDiv>
+      </div>
+      <div id="theflog">
+        <Link href="/theflog">
+          <a>
+            <Img srcSet="static/fugnet-theflog-320w.png,
+                        static/fugnet-theflog-640w.png 2x,
+                        static/fugnet-theflog-1242w.png 3x"
+                src="static/fugnet-theflog-320w.png"
+                alt="The Flog - It's trash, obviously" />
+          </a>
+        </Link>
+        <TextDiv>
+          <p>
+            <Link href="/theflog">
+              <a>The Fug Fam Blog aka The Flog aka Shit Post City.</a>
+            </Link>
+          </p>
+          <BlogFeed posts={props.flogPosts} />
         </TextDiv>
       </div>
       <div id="theclog">
-        <Img srcSet="static/fugnet-theclog-320w.png,
-                     static/fugnet-theclog-640w.png 2x,
-                     static/fugnet-theclog-1242w.png 3x"
-             src="static/fugnet-theclog-320w.png"
-             alt="The Clog - A coporate blog you can't trust." />
+        <Link href="/theclog">
+          <a>
+            <Img srcSet="static/fugnet-theclog-320w.png,
+                         static/fugnet-theclog-640w.png 2x,
+                         static/fugnet-theclog-1242w.png 3x"
+                src="static/fugnet-theclog-320w.png"
+                alt="The Clog - A coporate blog you can't trust." />
+          </a>
+        </Link>
         <TextDiv>
-          <p>The Clog aka Crandal's Blog - Coming Soon!</p>
           <p>
-            Bringing words from our visionary founder about disrupting the business world
+            <Link href="/theclog">
+              <a>The Clog aka Crandal's Blog</a>
+            </Link>
+          </p>
+          <p>
+            Words from our visionary founder about disrupting the business world
             and making the world a better place through the promise of tech,
             always helping us remember that worker's rights are our rights and that
             corporate power is a threat to us all, and thoughts on marketing trends and
             other hot tips to keep your customer happy and the bottom line FAT.
           </p>
+          <BlogFeed posts={props.clogPosts} />
         </TextDiv>
       </div>
       <Img srcSet="static/fugnet-fuglite-ad-320w.png,
@@ -166,8 +208,21 @@ const Home = () => (
                    static/fugnet-animation-1-1242w.gif 3x"
           src="static/fugnet-animation-1-320w.gif"
           alt="FugNet Animation 1" />
+      <Link href="/secretstatusclub">
+          <a>Secret Link</a>
+      </Link>
     </div>
   </>
 )
+
+Home.getInitialProps = async () => {
+  const flogPosts = await getFlogPosts();
+  const clogPosts = await getClogPosts();
+
+  return {
+    flogPosts: flogPosts,
+    clogPosts: clogPosts
+  }
+}
 
 export default Home
