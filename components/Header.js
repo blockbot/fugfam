@@ -1,5 +1,6 @@
 import styled from '@emotion/styled'
 import { css } from 'emotion'
+import Link from 'next/link'
 
 const Img = styled.img`{
   display: block;
@@ -13,11 +14,16 @@ const Header = () => (
     max-width: 414px;
     width: 100%;
   `}>
-    <Img srcSet="static/fugnet-logo-320w.gif,
-                static/fugnet-logo-640w.gif 2x,
-                static/fugnet-logo-943w.gif 3x"
-        src="static/fugnet-logo-320w.gif"
+  <Link href="/index">
+    <a>
+      <Img srcSet="/static/fugnet-logo-320w.gif,
+                /static/fugnet-logo-640w.gif 2x,
+                /static/fugnet-logo-943w.gif 3x"
+        src="/static/fugnet-logo-320w.gif"
         alt="FugNet Logo" />
+    </a>
+  </Link>
+
   </div>
 )
 
