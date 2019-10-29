@@ -13,6 +13,13 @@ const GlobalStyles = () => (
           margin: 0;
           padding: 0;
         }
+        a:link, a:visited{
+          color: #8dc63f;
+        }
+        a:active, a:hover{
+          color: #8dc63f;
+          text-decoration: none;
+        }
       `}
     />
   </>

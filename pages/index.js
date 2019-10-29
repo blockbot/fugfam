@@ -18,7 +18,11 @@ const P = styled.p`{
 
 const TextDiv = styled.div`{
   font-size: 22px;
-  margin: 0 40px;
+  margin: 0 10px;
+
+  p {
+    margin: 0 0 10px;
+  }
 }`
 
 const BlockLink = styled.a`{
@@ -101,13 +105,27 @@ const Home = (props) => (
           <P>
             We can't promise that you'll like it, but there is a chance!
           </P>
+          <div className={css`
+            position: relative;
+          `}>
+            <Img srcSet="static/fugnet-newsletter-fug-320w.png,
+                        static/fugnet-newsletter-fug-640w.png 2x,
+                        static/fugnet-newsletter-fug-1242w.png 3x"
+                  src="static/fugnet-newsletter-fug-320w.png"
+                  alt="Fug Letter Guy"
+                  className={css`
+                    width: auto;
+                    position: relative;
+                    left: -10px;
+                  `} />
+            <FugLetterForm />
+          </div>
           <P>
             What we can guarantee is this: it'll be inconsistent, inappropriate, and probably incoherent.
           </P>
           <P>
-            Insert your email into this box and let's commit to each other.
+            Insert your email into the box and let's commit to each other.
           </P>
-          <FugLetterForm />
         </TextDiv>
       </div>
       <Img srcSet="static/fugnet-animation-cow2-320w.gif,
@@ -131,6 +149,14 @@ const Home = (props) => (
           <BlockLink href="https://www.dropbox.com/sh/q71oazdts0r1ge4/AADn-qz6gvGwUvC4ObeDsrEqa?dl=0" target="_blank">Issue 2: "The Internet, What a Concept"</BlockLink>
         </TextDiv>
       </div>
+      <Img srcSet="static/fugnet-snake-hr-320w.png,
+                   static/fugnet-snake-hr-640w.png 2x,
+                   static/fugnet-snake-hr-1242w.png 3x"
+          src="static/fugnet-snake-hr-320w.png"
+          alt="It's just an HR but as a snake."
+          className={css`
+            margin: 40px 0;
+          `} />
       <div id="fanmail">
         <Img srcSet="static/fugnet-fanmail-1242w.png,
                      static/fugnet-fanmail-1242w.png 2x,
@@ -166,7 +192,7 @@ const Home = (props) => (
         <TextDiv>
           <p>
             <Link href="/theflog">
-              <a>The Fug Fam Blog aka The Flog aka Shit Post City.</a>
+              <a>The Flog aka The Fug Fam Blog  aka Shit Post City.</a>
             </Link>
           </p>
           <BlogFeed posts={props.flogPosts} />
