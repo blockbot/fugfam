@@ -15,7 +15,11 @@ const P = styled.p`{
 
 const TextDiv = styled.div`{
   font-size: 22px;
-  margin: 0 40px;
+  margin: 0 10px;
+
+  p {
+    margin: 0 0 10px;
+  }
 
   figure{
     margin: 10px 0;
