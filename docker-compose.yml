@@ -4,6 +4,8 @@ services:
   fugfam:
     build: .
     container_name: fugfam
+    environment:
+      CLOUDINARY_URL: ${CLOUDINARY_URL}
     ports:
       - 80:80
     volumes:

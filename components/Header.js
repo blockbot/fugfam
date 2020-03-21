@@ -4,26 +4,42 @@ import Link from 'next/link'
 
 const Img = styled.img`{
   display: block;
-  margin: 10px auto;
+  margin: 0 auto;
+
+  @media (min-width: 768px) {
+    margin: 0 0 0 80px;
+  }
 }`
 
 const Header = () => (
   <div className={css`
+    border-bottom: 2px solid #ffd200;
     margin: 0;
     padding: 0;
-    max-width: 414px;
     width: 100%;
   `}>
-  <Link href="/index">
-    <a>
-      <Img srcSet="/static/fugnet-logo-320w.gif,
-                /static/fugnet-logo-640w.gif 2x,
-                /static/fugnet-logo-943w.gif 3x"
-        src="/static/fugnet-logo-320w.gif"
-        alt="FugNet Logo" />
-    </a>
-  </Link>
+    <div className={css`
+      margin: 0 auto;
+      max-width: calc(1200px - 40px);
+      padding: 20px 0;
+      width: 100%;
 
+      @media (min-width: 1200px) {
+        padding: 20px;
+      }
+    `}>
+      <Link href="/">
+        <a className={css`
+          display: block;
+        `}>
+          <Img srcSet="/static/crandal-release/fugnet-logo-320w.png,
+                    /static/crandal-release/fugnet-logo-640w.png 2x,
+                    /static/crandal-release/fugnet-logo-1242w.png 3x"
+            src="/static/crandal-release/fugnet-logo-320w.png"
+            alt="FugNet Logo" />
+        </a>
+      </Link>
+    </div>
   </div>
 )
 
