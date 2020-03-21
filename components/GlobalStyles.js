@@ -9,7 +9,7 @@ const GlobalStyles = () => (
     <Global
       styles={css`
         html, body {
-          font-family: 'Gaegu', cursive;
+          font-family: Helvetica, Arial, sans-serif;
           margin: 0;
           padding: 0;
         }
@@ -19,6 +19,15 @@ const GlobalStyles = () => (
         a:active, a:hover{
           color: #8dc63f;
           text-decoration: none;
+        }
+        img{
+          margin: 0;
+          padding: 0;
+        }
+        .clearfix::after {
+          content: "";
+          clear: both;
+          display: table;
         }
       `}
     />

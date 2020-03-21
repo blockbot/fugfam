@@ -6,6 +6,17 @@ const api = new GhostContentAPI({
   version: "v3"
 });
 
+export async function getPostsFromTag(tag) {
+  return await api.posts
+    .browse({
+      limit: "5",
+      filter: `tag:${tag}`,
+    })
+    .catch(err => {
+      console.error(err);
+    });
+}
+
 export async function getFlogPosts() {
   return await api.posts
     .browse({
@@ -42,7 +53,8 @@ export async function getFanMail() {
 export async function getSinglePost(postSlug) {
   return await api.posts
     .read({
-      slug: postSlug
+      slug: postSlug,
+      include: "tags"
     })
     .catch(err => {
       console.error(err);
