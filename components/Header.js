@@ -32,7 +32,10 @@ const Header = () => (
         <a className={css`
           display: block;
         `}>
-          <Img srcSet="/static/crandal-release/fugnet-logo-320w.png,
+          <Img className={css`
+            width: 320px;
+          `}
+            srcSet="/static/crandal-release/fugnet-logo-320w.png,
                     /static/crandal-release/fugnet-logo-640w.png 2x,
                     /static/crandal-release/fugnet-logo-1242w.png 3x"
             src="/static/crandal-release/fugnet-logo-320w.png"
