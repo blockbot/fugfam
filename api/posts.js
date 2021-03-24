@@ -3,7 +3,8 @@ import GhostContentAPI from "@tryghost/content-api";
 const api = new GhostContentAPI({
   url: 'https://joeydehnert.ghost.io',
   key: 'c87a900be098ea0deb27785d08',
-  version: "v3"
+  version: "v3",
+  fun: "stuff"
 });
 
 export async function getPostsFromTag(tag) {
