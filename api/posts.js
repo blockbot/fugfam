@@ -10,7 +10,7 @@ const api = new GhostContentAPI({
 export async function getPostsFromTag(tag) {
   return await api.posts
     .browse({
-      limit: "5",
+      limit: "6",
       filter: `tag:${tag}`,
     })
     .catch(err => {
@@ -21,7 +21,7 @@ export async function getPostsFromTag(tag) {
 export async function getFlogPosts() {
   return await api.posts
     .browse({
-      limit: "5",
+      limit: "6",
       filter: "tag:the-flog",
     })
     .catch(err => {
@@ -32,7 +32,7 @@ export async function getFlogPosts() {
 export async function getClogPosts() {
   return await api.posts
     .browse({
-      limit: "5",
+      limit: "6",
       filter: "tag:the-clog",
     })
     .catch(err => {
@@ -43,7 +43,7 @@ export async function getClogPosts() {
 export async function getFanMail() {
   return await api.posts
     .browse({
-      limit: "5",
+      limit: "6",
       filter: "tag:fanmail",
     })
     .catch(err => {
