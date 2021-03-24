@@ -11,7 +11,7 @@ export async function getPageFromSlug(slug) {
     .read({
       slug: slug
     })
-    .catch(err => {
-      console.error(err);
+    .catch(error => {
+      console.error(error);
     });
 }
